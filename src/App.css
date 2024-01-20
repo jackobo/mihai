@@ -1,3 +1,21 @@
+* {
+    background-color: yellow;
+}
+
 .app{
 
+}
+
+
+
+.lista {
+    color:red;
+}
+
+.lista > .speciala {
+    font-size: 64px;
+}
+
+.lista.speciala {
+    background-color: pink;
 }
