@@ -1,0 +1,52 @@
+html, body{
+    height: 100%;
+
+}
+body{
+    overflow: hidden;
+}
+#root{
+    height: 100%;
+}
+.app{
+    background-color: blueviolet;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.header{
+    background-color: grey;
+    height: 60px;
+}
+
+.middle{
+    flex-grow: 1;
+    background-color: yellow;
+    display:flex;
+    flex-direction: row;
+    max-height: 100%;
+
+}
+.sidemenu{
+    min-width: 300px;
+    height: 100%;
+    background-color: pink ;
+    flex-grow: 1;
+}
+.content{
+    width: 60px;
+    height: 100%;
+    background-color: cornflowerblue;
+    flex-grow: 5;
+    overflow-y: auto;
+}
+
+.footer{
+    background-color: grey;
+    height: 60px;
+}
+.content-data{
+    height:2500px;
+}
