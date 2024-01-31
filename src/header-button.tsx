@@ -1,5 +1,5 @@
-import {EllipsisButton} from "./ellipsis-button";
 import styled from "styled-components";
+import React from "react";
 
 
 const MoreFunctionsButtonBox = styled.div`
@@ -17,12 +17,17 @@ const MoreFunctionsButtonBox = styled.div`
   
 `
 
-export function MoreFunctionsButton () {
+interface MoreFunctionsButtonProps {
+    text: string;
+    icon: React.ReactElement;
+}
+
+export function HeaderButton (props: MoreFunctionsButtonProps) {
     return (
         <MoreFunctionsButtonBox>
-            <EllipsisButton/>
+            {props.icon}
             <div>
-                More functions
+                {props.text}
             </div>
         </MoreFunctionsButtonBox>
     )
