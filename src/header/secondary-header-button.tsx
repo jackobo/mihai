@@ -11,11 +11,12 @@ const SecondaryHeaderButtonBox = styled.div`
 
 interface SecondaryHeaderButtonProps{
     text: string;
+    className?: string;
 }
 
 export function SecondaryHeaderButton (props: SecondaryHeaderButtonProps){
     return(
-        <SecondaryHeaderButtonBox>
+        <SecondaryHeaderButtonBox className={props.className}>
             {props.text}
         </SecondaryHeaderButtonBox>
     )

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {SecondaryHeaderButton} from "./secondary-header-button";
+import {ProductCategoryButton} from "./product-category-button";
 
 const SecondaryHeaderBox = styled.div`
  
@@ -17,6 +18,7 @@ export function SecondaryHeader (){
     return(
         <SecondaryHeaderBox>
             <SecondaryHeaderContentBox>
+                <ProductCategoryButton/>
                 <SecondaryHeaderButton text={"Shoes"}/>
                 <SecondaryHeaderButton text={"Men's Wear"}/>
                 <SecondaryHeaderButton text={"Women's Wear"}/>
