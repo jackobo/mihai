@@ -11,6 +11,7 @@ const MainHeaderBox = styled.div`
   width:100%;
 `
 
+
 const MainHeaderContentBox = styled.div`
   display:flex;
   flex-direction: row;
@@ -28,8 +29,8 @@ export function MainHeader(){
                 <Logo/>
                 <HeaderSearchInput/>
                 <HeaderButton text={"More functions"} icon={<EllipsisButton/>}/>
-                <HeaderButton text={"Estimation"} icon={<div>x</div>}/>
-                <HeaderButton text={"English/CNY"} icon={<div>y</div>}/>
+                <HeaderButton text={"Estimation"} icon={<img src={"estimations.png"}/>}/>
+                <HeaderButton text={"English/CNY"} icon={<img src={"language.png"}/>}/>
                 <LoginButton/>
                 <SignupButton/>
             </MainHeaderContentBox>
