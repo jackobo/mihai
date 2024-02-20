@@ -8,8 +8,7 @@ const TopBannerSearchBox = styled.div`
   gap: 10px;
   font-size: 28px;
   width: min(980px, 100%);
-  border-radius: 5px;
-  
+  border-radius: 5px;  
 `
 const SelectBox = styled.div`
   padding-left: 20px;
@@ -30,6 +29,7 @@ const SearchButtonBox = styled.div`
   display: flex;
   align-items: center;
   padding: 0 30px;
+  border-radius: 0 5px 5px 0;
 `
 
 export function TopBannerSearch(){

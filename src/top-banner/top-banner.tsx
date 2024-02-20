@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import {TopBannerSearch} from "./top-banner-search";
+import {DeliverySteps} from "./delivery-steps";
+import React from "react";
 
 const TopBannerTitleBox = styled.h1`
   color: white;
@@ -18,17 +20,23 @@ const TopBannerBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
- 
   
-    
+`
+
+const TopBannerContentBox = styled.div`
+ 
 `
 export function TopBanner(){
     return(
         <TopBannerBox>
-            <TopBannerTitleBox>
-                Shop from China, Shop with Pandabuy
-            </TopBannerTitleBox>
-            <TopBannerSearch/>
+            <TopBannerContentBox>
+                <TopBannerTitleBox>
+                    Shop from China, Shop with Pandabuy
+                </TopBannerTitleBox>
+                <TopBannerSearch/>
+                <DeliverySteps/>
+            </TopBannerContentBox>
+
         </TopBannerBox>
     )
 
