@@ -20,15 +20,38 @@ const CellBox =  styled.div`
   border: 1px solid lightgray;
   border-radius: 5px;
 `
+
+const WinningCellBox = styled(CellBox)`
+    background-color: red;
+    color: white;
+`
+
 interface CellComponentProps{
     displayNumber: number;
     onNumberRevealed: (n: number) => void;
+    gameStatus: GameStatus;
 }
 const CellComponent: React.FC<CellComponentProps> = (props) =>{
     const [isRevealed, setIsRevealed] = useState(false)
     const reveal = () =>{
         setIsRevealed(true);
         props.onNumberRevealed(props.displayNumber)
+    }
+    if(props.gameStatus === GameStatus.GameOver){
+        if(props.displayNumber >= 50){
+            return(
+                <WinningCellBox>
+                    {props.displayNumber}
+                </WinningCellBox>
+            )
+        } else {
+            return(
+                <CellBox>
+                    {props.displayNumber}
+                </CellBox>
+            )
+        }
+
     }
 
     if ( isRevealed){
@@ -43,6 +66,8 @@ const CellComponent: React.FC<CellComponentProps> = (props) =>{
         <CellBox onClick={reveal} />
     )
 }
+
+
 
 export const GuessGameComponent: React.FC = () => {
 
@@ -64,25 +89,18 @@ export const GuessGameComponent: React.FC = () => {
         }
     }
 
+    const renderOneCell = (n: number, index: number) => {
+        return (
+            <CellComponent key={`${n}_${index}`}
+                           displayNumber={n}
+                           onNumberRevealed={onNumberRevealed} gameStatus={gameState}/>
+        );
+    }
 
     const renderGameBody = () =>{
-        if (gameState === GameStatus.GameOver)
-        {
-            return(
-                <div>
-                    <div>
-                        Game Over
-                    </div>
-                    <div>
-                        {`Your score is: ${gameManager.getScore()}`}
-                    </div>
-
-                </div>
-            )
-        }
         return(
             <MatrixBox>
-                {gameManager.randomNumbers.map((n, index) => <CellComponent key={`${n}_${index}`} displayNumber={n} onNumberRevealed={onNumberRevealed}/>)}
+                {gameManager.randomNumbers.map(renderOneCell)}
             </MatrixBox>
         )
     }

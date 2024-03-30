@@ -4,38 +4,57 @@ export enum GameStatus {
     GameOver
 }
 
+const WINNING_NUMBERS_COUNT = 10;
+
 export class GameManager{
     randomNumbers: number[] = [];
-    startGame(){
+
+    private _generateRandomNumber(): number{
+        let r = Math.random() * 100;
+        return Math.floor(r);
+    }
+
+    private _generateRandomNumberInRange(range: number): number{
+        return this._generateRandomNumber() % range;
+    }
+
+    private _fillGameRandomNumbers(): void{
         for( let i = 1; i <= 100; i++)
         {
-            let r = Math.random() * 100;
-            r = Math.floor(r);
-            r = r % 50;
+            const r= this._generateRandomNumberInRange(50);
             this.randomNumbers.push(r);
 
         }
+    }
 
+    private _selectDistinctIndexes(): number[]{
         const randomIndexes: number[] = [];
-        while (randomIndexes.length < 10) {
-            let r = Math.random() * 100;
-            r = Math.floor(r);
-            if (r === 100){
-                r = 99;
-            }
+        while (randomIndexes.length < WINNING_NUMBERS_COUNT) {
+            let r = this._generateRandomNumberInRange(100);
             if(!randomIndexes.includes(r)) {
                 randomIndexes.push(r);
             }
         }
+        return randomIndexes;
+    }
 
-
-        for ( let i = 0; i < 10; i++)
+    private _generateWinningNumbers(randomIndexes: number[]): void{
+        for ( let i = 0; i < randomIndexes.length; i++)
         {
             const index = randomIndexes[i];
             this.randomNumbers[index] += 50;
-
         }
     }
+
+    startGame(){
+        this._fillGameRandomNumbers();
+
+        const randomIndexes = this._selectDistinctIndexes();
+
+        this._generateWinningNumbers(randomIndexes);
+
+    }
+
     revealedNumbers: number[] = [];
 
     revealNumber(n: number): GameStatus {
