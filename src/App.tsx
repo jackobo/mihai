@@ -7,6 +7,7 @@ import {TopBanner} from "./top-banner/top-banner";
 import {GuessGameComponent} from "./guess-game/components/guess-game.component";
 import {IncrementButtonComponent} from "./consolidare/increment-button.component";
 import {OptionButtonsComponent} from "./option-buttons/option-buttons.component";
+import {PersonSelectorComponent} from "./person-selector/person-selector.component";
 
 
 function App() {
@@ -17,9 +18,7 @@ function App() {
             <SecondaryHeader/>
             <TopBanner/>
             {/*<BannersContainer/>*/}
-            <GuessGameComponent/>
-            <IncrementButtonComponent/>
-            <OptionButtonsComponent/>
+            <PersonSelectorComponent/>
         </div>
     );
 }
